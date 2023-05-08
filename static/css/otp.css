@@ -8,6 +8,17 @@
     background-blend-mode: multiply;
     filter: blur(10px);
 }
+h1{
+    left: 170px;
+    width: 3000px;
+    height: 100px;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 100px;
+    font-family:'Times New Roman', Times, serif;
+    letter-spacing: 0.2em;
+    color: #023246;
+}
 #PNG {
     display: flex;
     left: 80px;
@@ -15,50 +26,44 @@
     height: 500px;
 }
 #Container{
-    background-color:rgba(255, 255, 255, 0.35);;
     width: 600px;
-    height: 600px;
-    top: 65px;
+    height: 490px;
+    top: 107px;
     left: 700px;
     border-radius: 25px;
+        
+    background: rgba(255, 255, 255, 0.35);
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+
 }
 #Container h2{
-    font-size: 45px;
-    top: 40px;
+    font-size: 60px;
+    top: 50px;
     left: 30px;
     color: #023246;
-    letter-spacing: 0.2em;
-}
-#Container h4{
-    font-size: 20px;
-    left: 35px;
-    top: 130px;
-    width: 500px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.1.5em;
 }
 form label{
-    position: relative;
+    position: absolute;
     display: flex;
-    width: 380px;
+    width: 550px;
     flex-direction: column;
-    left: 20px;
+    left: 30px;
     margin-top: 55px;
-    top: 120px;
+    top: 200px;
     font-size: 25px;
     color: #023246;
     font-weight: 600;
     letter-spacing: 0.1em;
 }
 form input {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
-    top: -200px;
+    top: 300px;
+    left: 30px;
     height: 30px;
     width: 300px;
-    margin-left: 20px;
-    margin-top: 56px;
     border-radius: 5px;
     background: #FDFDFD;
     border: 1px solid #000000;
@@ -71,10 +76,41 @@ form button{
     height: 40px;
     border-radius: 10px;
     font-size: 22px;
-    top: 545px ;
+    top: 400px ;
     left: 440px;
     cursor: pointer;
     box-shadow: 0px 4px 4px #023246;
+}
+form p{
+    position: absolute;
+    display: flex;
+    width: 550px;
+    flex-direction: column;
+    left: 30px;
+    top: 325px;
+    font-size: 20px;
+    color: #023246;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+.Label h4{
+    position: absolute;
+    display: flex;
+    width: 50px;
+    flex-direction: column;
+    left: 30px;
+    top: 345px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #023246;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+.Label h4:hover{
+    color:red;
+    font: bold;
+    font-size: 21px;
+    transition: 0.5s;
 }
 form button:hover{
     color: #000000;
@@ -82,13 +118,12 @@ form button:hover{
     transition: 0.5s;
     border-radius: 15px;
 }
-.button{
-    left: 520px;
-    top: 10px;
-}
+
 .button img{
     width: 50px;
     border-radius: 20px;
+    left: 1265px;
+    top: 27px;
 }
 .button img:hover{
     transition: 0.5s;

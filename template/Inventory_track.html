@@ -1,113 +1,79 @@
-{% load static %}
-
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Tracking</title>
-    <link rel="stylesheet" href="{% static 'Inventory_track.css' %}">
-    <link rel="shortcut icon" href="{% static '/Image/shieldsearch.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/Inventory_track.css'%}">
+    <link rel="shortcut icon" href="{% static 'Image/shieldsearch.png'%}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gm+kjf6KeXJjU1+6UqL6nHSzt0Fknxl5t5IN5qzjZ2aMv9XBLblxM+VKTFIsRyJh" crossorigin="anonymous">
+
 </head>
+
 <body>
     <section id="Container">
-        <img src="{% static '/Image/imslogowhite.png' %}" alt="Logo">
+        <img src="{% static 'Image/imslogowhite.png'%}" alt="Logo">
         <nav id="Menu">
-            <a href="Dash.html">
-                <button><img id="img1" src="{% static '/Image/Vector.png' %}">Dashboard</button>
+            <a href="{% url 'dashboard'%}">
+                <button><img id="img1" src="{% static 'Image/Vector.png'%}">Dashboard</button></a>
+            <a href="{% url 'inventorytrack'%}">
+                <button><img id="img2" src="{% static 'Image/shieldsearch.png'%}">Inventory Tracking</button>
             </a>
-            <a href="Inventory_track.html">
-                <button><img id="img2" src="{% static '/Image/shieldsearch.png' %}">Inventory Tracking</button>
-            </a>
-            <a href="orderprocess.html">
-                <button><img id="img3" src="{% static '/Image/emptywalletchange.png' %}">Order Processing</button>
-            </a>
-            <a href="R & A.html">
-                <button><img id="img4" src="{% static '/Image/documenttext.png' %}">Report & Analysis</button>
-            </a>
-            <a href="UAC.html">
-                <button><img id="img5" src="{% static '/Image/UAC.png' %}">User Access Control</button>
-            </a>
+            <button><img id="img3" src="{% static 'Image/emptywalletchange.png'%}">Order Processing</button>
+            <button><img id="img4" src="{% static 'Image/documenttext.png'%}">Report & Analysis</button>
+            <button><img id="img5" src="{% static 'Image/UAC.png'%}">User Access Control</button>
+            <button><img id="img6" src="{% static 'Image/trucktime.png'%}">Auto Reordering</button>
         </nav>
     </section>
 
     <section id="Headline">
         <h2>Inventory Management System</h2>
         <input type="text" placeholder="Search">
-        <a href="profile.html"><img id="Profile" src="{% static '/Image/profile.png' %}"></a>
-        <a href="Home.html"><img id="Logout" src="{% static '/Image/Iconsax/Linear/Logout.png' %}" ></a>
+        <a href="#"><img id="Profile" src="{% static 'Image/profile.png'%}"></a>
+        <a href="{% url 'home'%}"><img id="Logout" src="{% static 'Image/Iconsax/Linear/Logout.png'%}"></a>
     </section>
     <section id="Main">
         <h1>Inventory Tracking</h1>
-        <div id="Popup" class="popup">
-            <form>
-                <h1>Suppliers Information</h1>
-                <label id="PN">Product Name</label>
-                <input id="pn" type="text" placeholder="">
-                <br>
-                <label id="BN">Brand Name:</label>
-                <input id="bn" type="text" placeholder="">
-                <button id="Next">Next</button>
-            </form>
-        </div>
+        <button onclick="openPopup()"><img id="Add" src="{% static 'Image/addsquare.png'%}">Add</button>
+        <table id="producttable">
+            <tr>
+                <th>Product Code</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Location</th>
+                <th>Reorder Point</th>
+                <th>Data Recieved</th>
+                <th>Cost</th>
+                <th>Expirarion Date</th>
+                <th>Brand</th>
+                <th>Add/Delete</th>
+            </tr>
 
-        <button onclick="openPopup()"><img id="Add" src="{% static '/Image/addsquare.png' %}">Add</button>
-        <script>
-            function openPopup() {
-                let Popup = document.getElementById("Popup");
-                Popup.classList.add("show");
-            }
-            function closePopup() {
-                let Popup = document.getElementById("Popup");
-                Popup.classList.remove("show");
-            }
-        </script>
-        <div id="Popup2" class="popup2"></div>
-        <form method="post" action="{% url 'add_item' %}">
-            {% csrf_token %}
-            <label id="Location">Location:</label>
-            <input id="lo" type="text" placeholder="Select Location" name="location">
-            <label id="cost">Cost:</label>
-            <input id="co" type="text" placeholder="" name="cost">
-            <label id="Quantity">Quantity:</label>
-            <input id="qu" type="number" placeholder="" name="quantity">
-            <label id="Rp">Reorder Point:</label>
-            <input id="rp" type="text" placeholder="" name="reorder_point">
-            <label id="ED">Expiration Date:</label>
-            <input id="ed" type="datetime-local" placeholder="" name="expiration_date">
-            <label id="DR">Date Received:</label>
-            <input id="dr" type="datetime-local" placeholder="" name="date_received">
+        </table>
 
-            <button id="Done" type="submit">Done</button>
+    </section>
+    <section id="Popup">
+        <form>
+            <h1>Suppliers Information</h1>
+            <label>Brand Name:</label>
+            <label>Email Id:</label>
+            <input type="text" placeholder="">
+            <input type="email" placeholder="">
         </form>
-    </div>
-    <table>
-        <tr>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Location</th>
-            <th>Reorder Point</th>
-            <th>Data Received</th>
-            <th>Cost</th>
-            <th>Expiration Date</th>
-            <th>Brand</th>
-            <th>Add/Delete</th>
-        </tr>
-        {% for product in products %}
-        <tr>
-          <td>{{ product.name }}</td>
-          <td>{{ product.description }}</td>
-          <td>{{ product.price }}</td>
-          <td>{{ product.quantity }}</td>
-          <td>{{ product.location }}</td>
-          <td>{{ product.reorderpoint }}</td>
-          <td>{{ product.brand }}</td>
-          <td>{{ product.expirationdate }}</td>
-          <td>Add/Delete buttons</td>
-        </tr>
-      {% endfor %}
-    </table>
-</section>
+    </section>
+
+    <script src="{% static 'script/inventory.js'%}" type="application/javascript"></script>
+    <script>
+        let Popup = document.getElementById("Popup")
+
+        function openPopup() {
+            Popup.classList.add(".open-popup")
+        }
+    </script>
 </body>
+
 </html>

@@ -1,5 +1,5 @@
 body{
-    background-color: #A8A8A8;
+    background-color: #EBEBEB;
     margin: 0px;
     padding: 0px;
     font-family: "Aksara Bali Galang", sans-serif;
@@ -171,12 +171,12 @@ button #img6{
 }
 #Main h1{
     position: absolute;
-    left: 600px;
+    left: 290px;
 
     font-family:sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 32px;
     line-height: 10px;
 
     display: flex;
@@ -186,147 +186,145 @@ button #img6{
     color: #023246;
 
 }
+#Main #back{
+    position: absolute;
+    height: 32px;
+    width: 100px;
+    top: 98px;
+    left: 1180px;
+    background-color: #023246;
+    box-shadow: 5px 1px 4px #000000;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    text-align:right;
+    letter-spacing: 0.1em;
+    font-size: medium;
+    font-family:Arial, Helvetica, sans-serif;
+    cursor:pointer;
+}
+#Main button:hover{
+    transition: 0.25s;
+    color: #000000;
+    background-color: aqua;
+    border-radius: 10px;
+    border-color: aqua;
+    box-shadow: 0 0 5px blueviolet,
+    0 0 25px pink, 0 0 50px blueviolet,
+    0 0 100px pink, 0 0 200px blueviolet;
+}
+#Main button{
+    position: absolute;
+    height: 30px;
+    width: 100px;
+    top: 120px;
+    left: 1200px;
+    border-radius: 10px;
+}
 #Main #container{
     position: absolute;
-    width: 800px;
-    height: 400px;
-    left: 440px;
-    top: 220px;
+    top: 200px;
+    left: 280px;
+    width: 1070px;
+    height: 450px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.product .rec1{
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 300px;
+    height: 100px;
 
-    background: #FCFCFC;
-box-shadow: 0px 6px 6px 3px rgba(0, 0, 0, 0.25);
+    background: #CCDDE2;
+    border: 1px solid #023246;
+    border-radius: 15px;
 }
-#Label #name{
+.rec1 h2{
     position: absolute;
-    height: 10px;
-    color: #000000;
-    font-weight: 400;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 80px;
-    left: 320px;
+    left: 20px;
+    color: black;
+    font-size: 26px;
+    font-weight: 500;
+    align-items: center;
     letter-spacing: 0.1em;
-}
-#Label #dob{
-    position: absolute;
-    height: 10px;
-    color: #000000;
-    font-weight: 400;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 130px;
-    left: 320px;
-    letter-spacing: 0.1em;
-}
-#Label #EI{
-    position: absolute;
-    height: 10px;
-    color: #000000;
-    font-weight: 400;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 180px;
-    left: 320px;
-    letter-spacing: 0.1em;
-}
-#Label #XX{
-    position: absolute;
-    height: 10px;
-    color: #000000;
-    font-weight: 400;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 230px;
-    left: 320px;
-    letter-spacing: 0.1em;
-}
-#Label #No{
-    position: absolute;
-    height: 10px;
-    color: #000000;
-    font-weight: 400;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 280px;
-    left: 320px;
-    letter-spacing: 0.1em;
-}
-#Label #Ad{
-    position: absolute;
-    height: 10px;
-    color: #000000;
-    font-weight: 400;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 330px;
-    left: 320px;
-    letter-spacing: 0.1em;
-}
-#input #namein{
-    position: absolute;
-    top:80px;
-    left: 520px;
-    width: 220px;
-    height: 22px;
-    background: #FDFDFD;
-    box-shadow: 0px 4px 4px #023246;
-}
-#input #dobin{
-    position: absolute;
-    top:130px;
-    left: 520px;
-    width: 220px;
-    height: 22px;
-    background: #FDFDFD;
-    box-shadow: 0px 4px 4px #023246;
-}
-#input #EIin{
-    position: absolute;
-    top:180px;
-    left: 520px;
-    width: 220px;
-    height: 22px;
-    background: #FDFDFD;
-    box-shadow: 0px 4px 4px #023246;
-}
-#input #XXin{
-    position: absolute;
-    top:230px;
-    left: 520px;
-    width: 220px;
-    height: 22px;
-    background: #FDFDFD;
-    box-shadow: 0px 4px 4px #023246;
-}
-#input #Noin{
-    position: absolute;
-    top:280px;
-    left: 520px;
-    width: 220px;
-    height: 22px;
-    background: #FDFDFD;
-    box-shadow: 0px 4px 4px #023246;
-}
-#input #Adin{
-    position: absolute;
-    top:330px;
-    left: 520px;
-    width: 220px;
-    height: 22px;
-    background: #FDFDFD;
-    box-shadow: 0px 4px 4px #023246;
-}
-
-#upload{
-    top: 120px;
-    left: 70px;
-    border-radius: 30%;
-    object-fit: cover;
-    background: #dfdfdf;
-}
-#file{
-    position: absolute;
-    top: 280px;
-    left: 80px;
 
 }
+.rec1 p{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+
+    font-weight: 400;
+    align-items: center;
+    letter-spacing: 0.1em;
+
+}
+
+.product .rec2{
+    position: absolute;
+    top: 20px;
+    left: 380px;
+    width: 300px;
+    height: 100px;
+
+    background: #CCDDE2;
+    border: 1px solid #023246;
+    border-radius: 15px;
+}
+.rec2 h2{
+    position: absolute;
+    left: 20px;
+    color: black;
+    font-size: 26px;
+    font-weight: 500;
+    align-items: center;
+    letter-spacing: 0.1em;
+
+}
+.rec2 p{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    
+    font-weight: 400;
+    align-items: center;
+    letter-spacing: 0.1em;
+
+}
+
+.product .rec3{
+    position: absolute;
+    top: 20px;
+    left: 720px;
+    width: 300px;
+    height: 100px;
+
+    background: #CCDDE2;
+    border: 1px solid #023246;
+    border-radius: 15px;
+}
+.rec3 h2{
+    position: absolute;
+    left: 20px;
+    color: black;
+    font-size: 26px;
+    font-weight: 500;
+    align-items: center;
+    letter-spacing: 0.1em;
+
+}
+.rec3 p{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    
+    font-weight: 400;
+    align-items: center;
+    letter-spacing: 0.1em;
+
+}
+

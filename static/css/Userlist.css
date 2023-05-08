@@ -1,5 +1,5 @@
 body{
-    background-color: #A8A8A8;
+    background-color: white;
     margin: 0px;
     padding: 0px;
     font-family: "Aksara Bali Galang", sans-serif;
@@ -118,12 +118,13 @@ button{
 }
 button:hover{
     transition: 0.25s;
+    border-radius: none;
     color: #000000;
     background-color: aqua;
-    border-bottom: #000000;
+    border-color: aqua;
     box-shadow: 0 0 5px cyan,
-    0 0 10px cyan, 0 0 25px cyan,
-    0 0 50px cyan, 0 0 150px cyan;
+    0 0 25px cyan, 0 0 50px cyan,
+    0 0 100px cyan, 0 0 200px cyan;
 
 }
 button #img1{
@@ -171,162 +172,87 @@ button #img6{
 }
 #Main h1{
     position: absolute;
-    left: 600px;
-
-    font-family:sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 10px;
-
-    display: flex;
+    top: 79px;
+    left: 759px;
+    font-size: 30px ;
+    font-weight: 700;
     align-items: center;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
 
     color: #023246;
 
 }
-#Main #container{
+#Main button{
     position: absolute;
-    width: 800px;
-    height: 400px;
-    left: 440px;
-    top: 220px;
+    height: 32px;
+    width: 100px;
+    top: 98px;
+    left: 1242px;
+    background-color: #023246;
+    box-shadow: 5px 1px 4px #000000;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    text-align:right;
+    letter-spacing: 0.1em;
+    font-size: medium;
+    font-family:Arial, Helvetica, sans-serif;
+    cursor:pointer;
 
-    background: #FCFCFC;
-box-shadow: 0px 6px 6px 3px rgba(0, 0, 0, 0.25);
 }
-#Label #name{
-    position: absolute;
-    height: 10px;
+#Main button:hover{
+    transition: 0.25s;
     color: #000000;
-    font-weight: 400;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 80px;
-    left: 320px;
+    background-color: aqua;
+    border-radius: 10px;
+    border-color: aqua;
+    box-shadow: 0 0 5px blueviolet,
+    0 0 25px pink, 0 0 50px blueviolet,
+    0 0 100px pink, 0 0 200px blueviolet;
+}
+button #back{
+    height: 30px;
+    width: 30px;
+    left: 5px;
+    top: -1px;
+    
+}
+#Main table{
+    background-color:#023246;
+    color: white;
+    position: absolute;
+    left: 259px;
+    top: 144px;
+    height: 20pxs;
+    width: 1090px;
     letter-spacing: 0.1em;
-}
-#Label #dob{
-    position: absolute;
-    height: 10px;
-    color: #000000;
-    font-weight: 400;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 130px;
-    left: 320px;
-    letter-spacing: 0.1em;
-}
-#Label #EI{
-    position: absolute;
-    height: 10px;
-    color: #000000;
-    font-weight: 400;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 180px;
-    left: 320px;
-    letter-spacing: 0.1em;
-}
-#Label #XX{
-    position: absolute;
-    height: 10px;
-    color: #000000;
-    font-weight: 400;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 230px;
-    left: 320px;
-    letter-spacing: 0.1em;
-}
-#Label #No{
-    position: absolute;
-    height: 10px;
-    color: #000000;
-    font-weight: 400;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 280px;
-    left: 320px;
-    letter-spacing: 0.1em;
-}
-#Label #Ad{
-    position: absolute;
-    height: 10px;
-    color: #000000;
-    font-weight: 400;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    top: 330px;
-    left: 320px;
-    letter-spacing: 0.1em;
-}
-#input #namein{
-    position: absolute;
-    top:80px;
-    left: 520px;
-    width: 220px;
-    height: 22px;
-    background: #FDFDFD;
-    box-shadow: 0px 4px 4px #023246;
-}
-#input #dobin{
-    position: absolute;
-    top:130px;
-    left: 520px;
-    width: 220px;
-    height: 22px;
-    background: #FDFDFD;
-    box-shadow: 0px 4px 4px #023246;
-}
-#input #EIin{
-    position: absolute;
-    top:180px;
-    left: 520px;
-    width: 220px;
-    height: 22px;
-    background: #FDFDFD;
-    box-shadow: 0px 4px 4px #023246;
-}
-#input #XXin{
-    position: absolute;
-    top:230px;
-    left: 520px;
-    width: 220px;
-    height: 22px;
-    background: #FDFDFD;
-    box-shadow: 0px 4px 4px #023246;
-}
-#input #Noin{
-    position: absolute;
-    top:280px;
-    left: 520px;
-    width: 220px;
-    height: 22px;
-    background: #FDFDFD;
-    box-shadow: 0px 4px 4px #023246;
-}
-#input #Adin{
-    position: absolute;
-    top:330px;
-    left: 520px;
-    width: 220px;
-    height: 22px;
-    background: #FDFDFD;
-    box-shadow: 0px 4px 4px #023246;
-}
+    font-size: 14px;
 
-#upload{
-    top: 120px;
-    left: 70px;
-    border-radius: 30%;
-    object-fit: cover;
-    background: #dfdfdf;
 }
-#file{
+#Done{
     position: absolute;
-    top: 280px;
-    left: 80px;
-
+    height: 32px;
+    width: 75px;
+    top: 640px;
+    left: 1242px;
+    background-color: #023246;
+    box-shadow: 5px 1px 4px #000000;
+    border-radius:8px;
+    color: white;
+    font-weight: 700;
+    text-align:center;
+    letter-spacing: 0.1em;
+    font-size: medium;
+    font-family:Arial, Helvetica, sans-serif;
+    cursor:pointer;
+}
+#Done:hover{
+    transition: 0.25s;
+    color: #000000;
+    background-color: aqua;
+    border-radius: 10px;
+    border-color: aqua;
+    box-shadow: 0 0 5px blueviolet,
+    0 0 25px pink, 0 0 50px blueviolet,
+    0 0 100px pink, 0 0 200px blueviolet;
 }
