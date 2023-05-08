@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
+from inventory.models import Product
 
 # Create your views here.
 def signaction(request):
@@ -131,12 +132,35 @@ def UploadPictureAction(request):
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import ProductForm
-from inventory.models import Product
 
 def inventorytrackaction(request):
-    products = Product.objects.all()
-    context = {'products': products}
-    return render(request, 'inventory_track.html', context)
+    if request.method == 'POST':
+        name = request.POST['productname']
+        description = request.POST['description']
+        price = request.POST['price']
+        quantity = request.POST['quantity']
+        location = request.POST['location']
+        reorderpoint = request.POST['reorderpoint']
+        brand = request.POST['brandname']
+        expdate = request.POST['expirationdate']
+
+        product = Product(
+            name=name,
+            description=description,
+            price=price,
+            quantity=quantity,
+            location=location,
+            reorderpoint=reorderpoint,
+            brand=brand,
+            expirationdate=expdate
+        )
+        product.save()
+        return redirect('inventorytrack')  # Redirect to the inventory track page after saving the product
+
+    return render(request, 'inventory_track.html')
+
+
+
 
 def add_item(request):
     if request.method == 'POST':

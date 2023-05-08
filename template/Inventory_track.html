@@ -57,20 +57,70 @@
 
     </section>
     <dialog data-modal>
-        <form>
-            <h1>Suppliers Information</h1>
-            <label>Brand Name:</label>
-            <label>Email Id:</label>
-            <input type="text" placeholder="">
-            <input type="email" placeholder="">
-        </form>
-        <button data-close-modal></button>
-    </dialog>
 
+        <div class="box">
+            <h1>Add Product</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="brandname inner">
+                    <label>Product name:</label>
+                    <input type="text" placeholder="" name="productname">
+                </div>
+                <div class="description inner">
+                    <label>Description:</label>
+                    <input type="text" placeholder="" name="description">
+                </div>
+                <div class="price inner">
+                    <label>price:</label>
+                    <input type="number" placeholder="" name="price">
+                </div>
+                <div class="quantity inner">
+                    <label>Quantity:</label>
+                    <input type="number" placeholder="" name="quantity">
+                </div>
+                <div class="location inner">
+                    <label>Location:</label>
+                    <input type="text" placeholder="" name="location">
+                </div>
+                <div class="reorderpoint inner">
+                    <label>Reorder point:</label>
+                    <input type="text" placeholder="" name="reorderpoint">
+                </div>
+                <div class="brand inner">
+                    <label>Brand name:</label>
+                    <input type="text" placeholder="" name="brandname">
+                </div>
+                <div class="date inner">
+                    <label>Expiration date:</label>
+                    <input type="date" placeholder="" name="expirationdate">
+                </div>
+                <button type="submit">Add</button>
+            </form>
+            <button data-close-modal>close</button>
+        </div>
+
+    </dialog>
     <style>
-        dialog{
-            width: 500px;
+        dialog {
             height: 500px;
+            width: 500px;
+            border-radius: 10px;
+            border: none;
+        }
+
+        /* .box {
+            display: flex;
+            background-color: blue;
+            flex-direction: column;
+        }
+
+        .box form {
+            background-color: aqua;
+        } */
+
+        .inner {
+            display: flex;
+            justify-content: space-around;
         }
     </style>
 
@@ -80,14 +130,21 @@
         let open = document.querySelector("[data-open-modal]")
         let close = document.querySelector("[data-close-modal]")
 
-        open.addEventListener("click", ()=>{
-            Popup.showModal();
+
+        open.addEventListener("click", () => {
+            Popup.showModal()
         })
 
-        close.addEventListener("click",()=>{
+        close.addEventListener("click", () => {
             Popup.close()
         })
-        
+
+        Popup.addEventListener("click", function (event) {
+            if (event.target == Popup) {
+                Popup.close();
+            }
+        });
+
     </script>
 </body>
 

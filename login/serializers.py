@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 
 
 class ProductSerializer(serializers.ModelSerializer):
+
+    created_at = serializers.DateTimeField(format="%Y-%m-%d")
+
     class Meta:
         model = Product
         fields = ['id', 'name', 'price', 'quantity',
@@ -11,19 +14,6 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    profile_picture = serializers.ImageField(write_only=True)
-
     class Meta:
         model = User
-        fields = ['id', 'name', 'email', 'password', 'profile_picture']
-        extra_kwargs = {
-            'password': {'write_only': True}
-        }
-
-    def update(self, instance, validated_data):
-        profile_picture = validated_data.pop('profile_picture', None)
-        instance = super().update(instance, validated_data)
-        if profile_picture:
-            instance.profile_picture = profile_picture
-            instance.save()
-        return instance
+        fields = ['id', 'username', 'is_superuser', 'email']
