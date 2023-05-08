@@ -38,7 +38,7 @@
     </section>
     <section id="Main">
         <h1>Inventory Tracking</h1>
-        <button onclick="openPopup()"><img id="Add" src="{% static 'Image/addsquare.png'%}">Add</button>
+        <button data-open-modal><img id="Add" src="{% static 'Image/addsquare.png'%}">Add</button>
         <table id="producttable">
             <tr>
                 <th>Product Code</th>
@@ -56,7 +56,7 @@
         </table>
 
     </section>
-    <section id="Popup">
+    <dialog data-modal>
         <form>
             <h1>Suppliers Information</h1>
             <label>Brand Name:</label>
@@ -64,15 +64,30 @@
             <input type="text" placeholder="">
             <input type="email" placeholder="">
         </form>
-    </section>
+        <button data-close-modal></button>
+    </dialog>
+
+    <style>
+        dialog{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
 
     <script src="{% static 'script/inventory.js'%}" type="application/javascript"></script>
     <script>
-        let Popup = document.getElementById("Popup")
+        let Popup = document.querySelector("[data-modal]")
+        let open = document.querySelector("[data-open-modal]")
+        let close = document.querySelector("[data-close-modal]")
 
-        function openPopup() {
-            Popup.classList.add(".open-popup")
-        }
+        open.addEventListener("click", ()=>{
+            Popup.showModal();
+        })
+
+        close.addEventListener("click",()=>{
+            Popup.close()
+        })
+        
     </script>
 </body>
 
