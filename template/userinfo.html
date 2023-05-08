@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User info</title>
+    <link rel="stylesheet" href="{% static 'css/userinfo.css' %}">
+    <link rel="shortcut icon" href="{% static 'Image/sign_weblogo.png' %}" type="image/x-icon">
+</head>
+<body>
+    <img id="Background" src="{% static 'Image/Loginbackground.png' %}" alt="Background">
+    <div id="Container">
+        <h2>User Information</h2>
+        <form action="{% url 'dash' %}" method="post">
+            {% csrf_token %}
+            {% if error_message %}
+                <p style="color:red">{{ error_message }}</p>
+            {% endif %}
+            <div class="Label">
+                <label>Full Name</label>
+                <label>Date of Birth</label>
+                <label>Contact Number</label>
+                <label>Address</label>
+                <label>Sex</label>
+            </div>
+            <input type="text" name="full_name" placeholder="">
+            <input type="date" name="date_of_birth" placeholder="">
+            <input type="text" name="contact_number" placeholder="">
+            <input type="text" name="address" placeholder="">
+            <select id="sex" name="sex">
+                <option value="Male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <button class="Sign" type="submit">Done</button>
+        </form>
+        <a href="{% url 'sign' %}">
+            <div class="button">
+                <img src="{% static 'Image/arrowleft.png' %}">
+            </div>
+        </a>
+    </div>
+</body>
+</html>

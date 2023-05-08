@@ -22,6 +22,15 @@ class Admin(models.Model):
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=100)
+    # profile_picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True)
+
 
     def __str__(self):
         return self.name
+    
+# class Orders(models.Model):
+#     Product_name = models.CharField(max_length=20)
+#     Cost = models.CharField(max_length=20)
+# Quantity = models.CharField(max_length=20)
+# Ordered date 
+# Delivery Location

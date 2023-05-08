@@ -39,7 +39,7 @@ def signaction(request):
 
             # Save the new instance to the database
                 status = admin.save()
-                return render(request, 'signup_page.html', context)
+                return render(request, 'userinfo.html', context)
             else:
                 error_message = "Password Mismatch!!"
                 context = {'error_message': error_message}
@@ -47,7 +47,7 @@ def signaction(request):
     else:
         context = {}
         return render(request, 'signup_page.html', context)
-
+    
 
 def homeaction(request):
     return render(request, 'Home.html')
@@ -62,9 +62,9 @@ def aboutaction(request):
 def dashboardaction(request):
     return render(request, 'Dash.html')
 
-@login_required
-def inventorytrackaction(request):
-    return render(request, 'inventory_track.html')
+# @login_required
+# def inventorytrackaction(request):
+#     return render(request, 'inventory_track.html')
 
 
 @login_required
@@ -114,3 +114,43 @@ def forgetaction(request):
             return render(request, 'forgotpass.html', {'error_message': error_message})
     else:
         return render(request, 'forgotpass.html')
+
+
+from login.serializers import UserSerializer
+
+@login_required
+def UploadPictureAction(request):
+    if request.method == 'POST':
+        serializer = UserSerializer(data=request.POST, instance=request.user)
+        if serializer.is_valid():
+            serializer.save()
+            return redirect('profile.html')  # Replace 'profile' with the URL name of your profile page
+    else:
+        serializer = UserSerializer(instance=request.user)
+    return render(request, 'profile.html', {'serializer': serializer})
+
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .forms import ProductForm
+from inventory.models import Product
+
+def inventorytrackaction(request):
+    products = Product.objects.all()
+    context = {'products': products}
+    return render(request, 'inventory_track.html', context)
+
+def add_item(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Item added successfully!')
+            return redirect('inventorytrack')
+    else:
+        form = ProductForm()
+    return render(request, 'inventory_track.html', {'form': form})
+
+
+def useraction(request):
+    return render(request, 'userinfo.html')

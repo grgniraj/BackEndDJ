@@ -11,6 +11,19 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
+    profile_picture = serializers.ImageField(write_only=True)
+
     class Meta:
         model = User
-        fields = ['id', 'username', 'is_superuser', 'email']
+        fields = ['id', 'name', 'email', 'password', 'profile_picture']
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }
+
+    def update(self, instance, validated_data):
+        profile_picture = validated_data.pop('profile_picture', None)
+        instance = super().update(instance, validated_data)
+        if profile_picture:
+            instance.profile_picture = profile_picture
+            instance.save()
+        return instance
