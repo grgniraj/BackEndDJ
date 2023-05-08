@@ -9,8 +9,6 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 
 # Create your views here.
-
-
 def signaction(request):
     if request.method == "POST":
         password = request.POST['password']
