@@ -110,6 +110,9 @@ def aboutaction(request):
 def contact(request):
     return render(request, 'contactus.html')
 
+def order(request):
+    return render(request, 'orderprocessing.html')
+
 
 @login_required
 def dashboardaction(request):

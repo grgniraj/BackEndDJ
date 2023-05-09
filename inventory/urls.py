@@ -1,7 +1,7 @@
 from django import views
 from django.contrib import admin
 from django.urls import include, path
-from signup.views import signaction, homeaction, aboutaction, dashboardaction, inventorytrackaction, changeaction, forgetaction, UploadPictureAction, add_item, useraction, contact
+from signup.views import signaction, homeaction, aboutaction, dashboardaction, inventorytrackaction, changeaction, forgetaction, UploadPictureAction, add_item, useraction, contact,order
 from login.views import loginaction, ProductList, ProductDetail, UserList, UserDetail
 from django.contrib.auth import views as auth_views
 
@@ -12,6 +12,8 @@ urlpatterns = [
 
     path('accounts/login/', loginaction, name='login'),
     path('dashboard/', dashboardaction, name='dashboard'),
+    path('order/', order, name='order'),
+
     
     path('inventorytrack/', inventorytrackaction, name='inventorytrack'),
     path('add-item/', add_item, name='additem'),
@@ -23,7 +25,6 @@ urlpatterns = [
     path('api/users/', UserList.as_view()),
     path('home/aboutus/', aboutaction, name='aboutus'),
     path('home/contactus/', contact, name='contactus'),
-
 
     path('changepassword/', changeaction, name='changepassword'),
     path('forgotpassword/', forgetaction, name='forgotpassword'),
