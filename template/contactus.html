@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'css/contactus.css'%}">
+</head>
+<body>
+    <div id="Main">
+        <img id = "Background" src="{% static 'Image/contactusbackground.png'%}" alt="Background">
+        <div id="Rectangle"></div>
+    </div>
+    <section id = "Heading">
+        <img id="Logo" src="{% static 'Image/imslogowhite.png'%}" alt="Logo">
+      <nav>
+        <a href="{% url 'home'%}" style="text-decoration: none; ">Home</a>
+        <a href="{% url 'aboutus'%}" style="text-decoration: none; ">About Us</a>
+        <a href="{% url 'contactus'%}" style="text-decoration: none; ">Contact Us</a>
+        <a href="{% url 'signup'%}" style="text-decoration: none; ">Sign Up</a>
+        <a href="{% url 'login'%}" style="text-decoration: none; ">Log In</a>
+      </nav>
+    </section>
+    <section id="Main">
+        <div id="Box1">
+            <img id="prop" src="{% static 'Image/contactus_prop.png'%}" alt="Prop">
+            <h2>Contact us</h2>
+            <h3>To know more about application:</h3>
+            <h2 id="baname">Sameer Shrestha</h2>
+            <h3 id="baid">sameershrestha722@gmail.com</h3>
+            <h3 id="technical" >Technical support:</h3>
+            <h2 id="pname">Prashanna Lohani</h2>
+            <h3 id="pid">plohani2003@gmail.com</h3>
+            <h2 id="Nname">Niraj Gurung</h2>
+            <h3 id="nid">grgn1rax@gmail.com</h3>
+            <h2 id="sname">Saugat Chaulagin</h2>
+            <h3 id="sid" >saugatchaulagain999@gmail.com</h3>
+        </div>
+        </div>
+    </section>
+    
+</body>
+</html>

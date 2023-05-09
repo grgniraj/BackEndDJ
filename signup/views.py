@@ -100,13 +100,6 @@ def useraction(request):
         return render(request, 'userinfo.html', context)
 
 
-
-
-
-
-
-
-
 def homeaction(request):
     return render(request, 'Home.html')
 
@@ -114,6 +107,8 @@ def homeaction(request):
 def aboutaction(request):
     return render(request, 'aboutus.html')
 
+def contact(request):
+    return render(request, 'contactus.html')
 
 
 @login_required
@@ -231,5 +226,4 @@ def add_item(request):
     else:
         form = ProductForm()
     return render(request, 'inventory_track.html', {'form': form})
-
 
