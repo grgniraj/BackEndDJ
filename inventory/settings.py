@@ -73,7 +73,7 @@ DATABASES = {
         'ENGINE': 'mysql.connector.django',
         'NAME': 'ims2',
         'USER': 'root',
-        'PASSWORD': '5246709n',
+        'PASSWORD': '1472369b',
         'HOST': 'localhost',
         'PORT': '3306',
     }

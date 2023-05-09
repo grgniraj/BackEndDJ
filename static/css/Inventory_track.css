@@ -298,3 +298,129 @@ th {
     margin-top: 38px;
     font-size: 25px;
 }
+.box h1{
+    position: absolute;
+    top: 1%;
+    left: 5%;
+    font-weight:400
+}
+.brandname_inner label{
+    position: absolute;
+    top: 14%;
+    left: 5%;
+    font-size: 18px ;
+}
+.brandname_inner input {
+    position: absolute;
+    top: 14%;
+    left: 36%;
+    width: 42%;
+    height: 4%;
+}
+.description_inner label{
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    font-size: 18px ;
+}
+.description_inner input {
+    position: absolute;
+    top: 20%;
+    left: 36%;
+    width: 42%;
+    height: 4%;
+}
+.price_inner label{
+    position: absolute;
+    top: 26%;
+    left: 5%;
+    font-size: 18px ;
+}
+.price_inner input {
+    position: absolute;
+    top: 26%;
+    left: 36%;
+    width: 42%;
+    height: 4%;
+}
+.quantity_inner label{
+    position: absolute;
+    top: 32%;
+    left: 5%;
+    font-size: 18px ;
+}
+.quantity_inner input {
+    position: absolute;
+    top: 32%;
+    left: 36%;
+    width: 42%;
+    height: 4%;
+}
+.location_inner label{
+    position: absolute;
+    top: 38%;
+    left: 5%;
+    font-size: 18px ;
+}
+.location_inner input {
+    position: absolute;
+    top: 38%;
+    left: 36%;
+    width: 42%;
+    height: 4%;
+}
+.reorderpoint_inner label{
+    position: absolute;
+    top: 44%;
+    left: 5%;
+    font-size: 18px ;
+}
+.reorderpoint_inner input {
+    position: absolute;
+    top: 44%;
+    left: 36%;
+    width: 42%;
+    height: 4%;
+}
+.brand_inner label{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    font-size: 18px ;
+}
+.brand_inner input {
+    position: absolute;
+    top: 50%;
+    left: 36%;
+    width: 42%;
+    height: 4%;
+}
+.date_inner label{
+    position: absolute;
+    top: 56%;
+    left: 5%;
+    font-size: 18px ;
+}
+.date_inner input {
+    position: absolute;
+    top: 56%;
+    left: 36%;
+    width: 42%;
+    height: 4%;
+}
+
+#Add {
+    position: absolute;
+    top: 80%;
+    left: 49%;
+    width: 114px;
+    height: 40px;
+}
+.box #close{
+    position: absolute;
+    top: 80%;
+    left: 75%;
+    width: 114px;
+    height: 40px;
+}
+
