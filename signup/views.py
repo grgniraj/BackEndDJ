@@ -79,7 +79,9 @@ def signaction(request):
         return render(request, 'signup_page.html', context)
 
 def useraction(request):
+    print("one")
     if request.method == "POST":
+        print("two")
         full_name = request.session.get('full_name')
         email = request.session.get('email')
         password = request.session.get('password')
@@ -87,12 +89,12 @@ def useraction(request):
         contact_number = request.POST['contact_number']
         address = request.POST['address']
         sex = request.POST['sex']
-
+        print(full_name,email,password,date_of_birth,contact_number,address,sex)
         hashed_password = make_password(password)
         admin = Admin(name=full_name, email=email, password=hashed_password, date_of_birth=date_of_birth, contact_number=contact_number, address=address, sex=sex)
         admin.save()
 
-        return redirect('dash')
+        return redirect('login')
     else:
         context = {}
         return render(request, 'userinfo.html', context)
