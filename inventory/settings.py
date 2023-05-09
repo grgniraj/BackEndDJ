@@ -73,7 +73,11 @@ DATABASES = {
         'ENGINE': 'mysql.connector.django',
         'NAME': 'ims2',
         'USER': 'root',
+<<<<<<< HEAD
         'PASSWORD': 'Saugat1234$',
+=======
+        'PASSWORD': '1472369b',
+>>>>>>> 02f4840805d5d1912c70beef65919279c3493709
         'HOST': 'localhost',
         'PORT': '3306',
     }

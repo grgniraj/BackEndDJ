@@ -62,41 +62,41 @@
             <h1>Add Product</h1>
             <form method="post">
                 {% csrf_token %}
-                <div class="brandname inner">
+                <div class="brandname_inner">
                     <label>Product name:</label>
                     <input type="text" placeholder="" name="productname">
                 </div>
-                <div class="description inner">
+                <div class="description_inner">
                     <label>Description:</label>
                     <input type="text" placeholder="" name="description">
                 </div>
-                <div class="price inner">
-                    <label>price:</label>
+                <div class="price_inner">
+                    <label>Price:</label>
                     <input type="number" placeholder="" name="price">
                 </div>
-                <div class="quantity inner">
+                <div class="quantity_inner">
                     <label>Quantity:</label>
                     <input type="number" placeholder="" name="quantity">
                 </div>
-                <div class="location inner">
+                <div class="location_inner">
                     <label>Location:</label>
                     <input type="text" placeholder="" name="location">
                 </div>
-                <div class="reorderpoint inner">
+                <div class="reorderpoint_inner">
                     <label>Reorder point:</label>
                     <input type="text" placeholder="" name="reorderpoint">
                 </div>
-                <div class="brand inner">
+                <div class="brand_inner">
                     <label>Brand name:</label>
                     <input type="text" placeholder="" name="brandname">
                 </div>
-                <div class="date inner">
+                <div class="date_inner">
                     <label>Expiration date:</label>
                     <input type="date" placeholder="" name="expirationdate">
                 </div>
-                <button type="submit">Add</button>
+                <button id="Add" type="submit">Add</button>
             </form>
-            <button data-close-modal>close</button>
+            <button id="close" data-close-modal>Close</button>
         </div>
 
     </dialog>
@@ -107,16 +107,6 @@
             border-radius: 10px;
             border: none;
         }
-
-        /* .box {
-            display: flex;
-            background-color: blue;
-            flex-direction: column;
-        }
-
-        .box form {
-            background-color: aqua;
-        } */
 
         .inner {
             display: flex;
