@@ -22,6 +22,11 @@ class Admin(models.Model):
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=100)
+    date_of_birth = models.DateField(blank=True, null=True)
+    contact_number = models.CharField(max_length=15, blank=True, null=True)
+    address = models.CharField(max_length=255, blank=True, null=True)
+    sex = models.CharField(max_length=10, choices=(('Male', 'Male'), ('Female', 'Female')), blank=True, null=True)
+
     # profile_picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True)
 
 
