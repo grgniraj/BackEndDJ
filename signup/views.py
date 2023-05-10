@@ -102,6 +102,7 @@ def useraction(request):
 
         return redirect('login')
     else:
+        print("three")
         context = {}
         return render(request, 'userinfo.html', context)
 

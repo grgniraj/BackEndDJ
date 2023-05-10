@@ -17,7 +17,6 @@ def loginaction(request):
     if request.method == 'POST':
         username = request.POST.get('email')
         password = request.POST.get('password')
-        print(username, password)
         user = authenticate(request, username=username, password=password)
         if user is not None:
             # The password entered by the user is correct
@@ -54,12 +53,6 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 # for invntory_tracking
-<<<<<<< HEAD
-
-
-=======
-# import requests
->>>>>>> 824623313a65a54220b3a94b252b24e87c59ab0a
 def inventorytrackaction(request):
     api_url = 'http://localhost:8000/api/products/'
     response = requests.get(api_url)
