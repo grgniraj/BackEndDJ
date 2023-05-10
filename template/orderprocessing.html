@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,19 +10,20 @@
     <link rel="stylesheet" href="{% static 'css/orderprocess.css'%}">
     <link rel="shortcut icon" href="{% static 'Image/Vector.png'%}" type="image/x-icon">
 </head>
+
 <body>
     <section id="Container">
         <img src="{% static 'Image/imslogowhite.png'%}" alt="Logo">
         <nav id="Menu">
             <a href="{% url 'dashboard'%}">
-            <button><img id="img1" src="{% static 'Image/Vector.png'%}">Dashboard</button></a>
+                <button><img id="img1" src="{% static 'Image/Vector.png'%}">Dashboard</button></a>
             <a href="{% url 'inventorytrack'%}">
-            <button><img id="img2" src="{% static 'Image/shieldsearch.png'%}">Inventory Tracking</button></a>
+                <button><img id="img2" src="{% static 'Image/shieldsearch.png'%}">Inventory Tracking</button></a>
             <a href="{% url 'order'%}">
                 <button><img id="img3" src="{% static 'Image/emptywalletchange.png'%}">Order Processing</button></a>
             <a href="{% url 'RA'%}">
-                    <button><img id="img4" src="{% static 'Image/documenttext.png'%}">Report & Analysis</button>
-            </a>            
+                <button><img id="img4" src="{% static 'Image/documenttext.png'%}">Report & Analysis</button>
+            </a>
             <a href="{% url 'UAC'%}">
                 <button><img id="img5" src="{% static 'Image/UAC.png'%}">User Access Control</button>
             </a>
@@ -32,7 +34,7 @@
         <h2>Inventory Management System</h2>
         <input type="text" placeholder="Search">
         <a href="{% url 'profile'%}"><img id="Profile" src="{% static 'Image/profile.png'%}"></a>
-        <a href="{% url 'home'%}"><img id="Logout" src="{% static 'Image/Iconsax/Linear/Logout.png'%}" ></a>
+        <a href="{% url 'home'%}"><img id="Logout" src="{% static 'Image/Iconsax/Linear/Logout.png'%}"></a>
     </section>
     <section id="Main">
         <h1>Order Processing</h1>
@@ -61,27 +63,125 @@
         <div id="Forms">
             <a href="{% url 'TOP'%}">
                 <div class="top">
-                    <h2>Today’s Ordered Products</h2> 
+                    <h2>Today’s Ordered Products</h2>
                 </div>
-            </a> 
+            </a>
             <a href="{% url 'DOP'%}">
                 <div class="dop">
                     <h2>Delivered Ordered Products</h2>
                 </div>
-            </a>  
+            </a>
             <a href="{% url 'POP'%}">
                 <div class="pop">
                     <h2>Pending Ordered Products</h2>
                 </div>
-            </a> 
+            </a>
             <a href="{% url 'COP'%}">
-            <div class="cop">
-                <h2>Cancelled Ordered Products</h2>
-            </div>
-        </a>
+                <div class="cop">
+                    <h2>Cancelled Ordered Products</h2>
+                </div>
+            </a>
         </div>
-        <button onclick="openPopup()"><img id="Add" src="{% static 'Image/addsquare.png'%}">Add</button>
 
+
+        <dialog dialog-modal>
+            <div class="box-modal">
+                <h3>Place Order</h3>
+                <button dialog-close-modal id="xs">X</button>
+            </div>
+            <form method="post" action="{% url 'order'%}">
+                {% csrf_token %}
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" required>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+
+                <label for="deliveryLocation">Delivery Location:</label>
+                <input type="text" id="deliveryLocation" name="deliveryLocation" required>
+
+                <button type="submit" class="submit-button">Place Order</button>
+            </form>
+        </dialog>
+        <button dialog-open-modal><img id="Add" src="{% static 'Image/addsquare.png'%}">Add</button>
+        <style>
+            dialog {
+                height: 500px;
+                width: 500px;
+                border: none;
+                border-radius: 10px;
+                align-items: center;
+                justify-content: center;
+                background-color: #fff;
+                box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            .box-modal {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding: 10px;
+                background-color: #eee;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .box-modal h2 {
+                margin: 0;
+            }
+
+            .box-modal button {
+                background-color: transparent;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                width: 100%;
+            }
+
+            form label {
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+
+            form input {
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin-bottom: 15px;
+            }
+
+            .submit-button {
+                width: 100px;
+                margin-left: -816px;
+                margin-top: 243px;
+            }
+
+            #xs {
+                margin-left: -816px;
+                margin-top: -83px;
+            }
+        </style>
+        <script>
+            let modal = document.querySelector('[dialog-modal]')
+            let open = document.querySelector('[dialog-open-modal]')
+            let close = document.querySelector('[dialog-close-modal]')
+
+            open.addEventListener("click", () => {
+                modal.showModal();
+            })
+
+            close.addEventListener("click", () => {
+                modal.close();
+            })
+
+        </script>
     </section>
 </body>
+
 </html>

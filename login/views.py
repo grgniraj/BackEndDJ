@@ -11,6 +11,7 @@ from django.utils.decorators import method_decorator
 
 # Create your views here.
 
+
 def loginaction(request):
     context = {}
     if request.method == 'POST':
@@ -25,7 +26,8 @@ def loginaction(request):
                 pass
         # If it's not an email, check if it's a username
         if user is None:
-            user = authenticate(request, username=username_or_email, password=password)
+            user = authenticate(
+                request, username=username_or_email, password=password)
         if user is not None:
             # The password entered by the user is correct
             login(request, user)
