@@ -3,8 +3,8 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import check_password
 from rest_framework import generics
-from inventory.models import Product
-from .serializers import ProductSerializer, UserSerializer
+from inventory.models import Product, Order
+from .serializers import ProductSerializer, UserSerializer, OrderSerializer
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.utils.decorators import method_decorator
@@ -112,3 +112,8 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(UserDetail, self).dispatch(*args, **kwargs)
+
+
+class OrderListCreateView(generics.ListCreateAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
