@@ -243,7 +243,7 @@ def inventorytrackaction(request):
         # Redirect to the inventory track page after saving the product
         return redirect('inventorytrack')
 
-    return render(request, 'inventory_track.html')
+    return render(request, 'Inventory_track.html')
 
 
 def add_item(request):
