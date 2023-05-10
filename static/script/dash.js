@@ -15,3 +15,12 @@ fetch("http://localhost:8000/api/users/")
   .catch((error) => {
     console.error("Error:", error);
   });
+
+fetch("http://localhost:8000/api/orders/")
+  .then((response) => response.json())
+  .then((data) => {
+    document.getElementById("totalorders").innerHTML = data.length;
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
