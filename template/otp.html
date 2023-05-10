@@ -1,0 +1,31 @@
+{% load static %}  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <link rel="stylesheet" href="{% static 'css/otp.css' %}">  
+    <link rel="shortcut icon" href="{% static 'Image/logincurve.png' %}" type="image/x-icon"> 
+</head>
+</head>
+<body>
+    <img id="Background" src="{% static 'Image/passwordbackground.png' %}" alt="Background">  
+    <img id="PNG" src="{% static 'Image/forget-password.png' %}" alt="JPG">  
+    <div id="Container">
+        <h2>Recover Password</h2>
+        <form action="Recoverpass.html">
+            <div class="Label">
+                <label>Enter OTP you have received</label>
+                <p>Haven't received OTP?</p>
+                <h4>Resend</h4>
+                <input type="email" placeholder="">
+                <button class="done" type="submit">Next</button> 
+            </div>
+        </form>
+    </div>
+    <a href="{% url 'forgotpassword'%}"><div class="button"><img src="{% static 'Image/arrowleft.png' %}"></div></a> 
+</body>
+</html>
