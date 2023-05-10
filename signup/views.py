@@ -72,6 +72,12 @@ def signaction(request):
                 request.session['full_name'] = full_name
                 request.session['email'] = email
                 request.session['password'] = password
+                hashed_password = make_password(password)
+                admin = User(username=full_name, email=email,
+                              password=hashed_password, is_staff=True)
+
+            # Save the new instance to the database
+                status = admin.save()
                 return redirect('userinfo')
             else:
                 error_message = "Password Mismatch!!"

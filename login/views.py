@@ -11,13 +11,21 @@ from django.utils.decorators import method_decorator
 
 # Create your views here.
 
-
 def loginaction(request):
     context = {}
     if request.method == 'POST':
-        username = request.POST.get('email')
+        username_or_email = request.POST.get('username_or_email')
         password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
+        user = None
+        # Check if the username_or_email is an email
+        if '@' in username_or_email:
+            try:
+                user = User.objects.get(email=username_or_email)
+            except User.DoesNotExist:
+                pass
+        # If it's not an email, check if it's a username
+        if user is None:
+            user = authenticate(request, username=username_or_email, password=password)
         if user is not None:
             # The password entered by the user is correct
             login(request, user)
@@ -30,6 +38,7 @@ def loginaction(request):
     else:
         context = {}
         return render(request, 'login_page.html', context)
+
 
 # for api Products
 
