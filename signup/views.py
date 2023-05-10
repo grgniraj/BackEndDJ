@@ -93,7 +93,8 @@ def useraction(request):
         contact_number = request.POST['contact_number']
         address = request.POST['address']
         sex = request.POST['sex']
-        print(full_name,email,password,date_of_birth,contact_number,address,sex)
+        print(full_name, email, password, date_of_birth,
+              contact_number, address, sex)
         hashed_password = make_password(password)
         admin = Admin(name=full_name, email=email, password=hashed_password,
                       date_of_birth=date_of_birth, contact_number=contact_number, address=address, sex=sex)
@@ -112,11 +113,14 @@ def homeaction(request):
 def aboutaction(request):
     return render(request, 'aboutus.html')
 
+
 def contact(request):
     return render(request, 'contactus.html')
 
+
 def order(request):
     return render(request, 'orderprocessing.html')
+
 
 @login_required
 def dashboardaction(request):
@@ -225,7 +229,3 @@ def add_item(request):
     else:
         form = ProductForm()
     return render(request, 'inventory_track.html', {'form': form})
-<<<<<<< HEAD
-=======
-
->>>>>>> 824623313a65a54220b3a94b252b24e87c59ab0a
