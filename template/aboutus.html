@@ -20,7 +20,7 @@
         <nav>
             <a href="{% url 'home'%}" style="text-decoration: none; ">Home</a>
             <a href="{% url 'aboutus'%}" style="text-decoration: none; ">About Us</a>
-            <a href="#" style="text-decoration: none; ">Contact Us</a>
+            <a href="{% url 'contactus'%}" style="text-decoration: none; ">Contact Us</a>
             <a href="{% url 'signup'%}" style="text-decoration: none; ">Sign Up</a>
             <a href="{% url 'login'%}" style="text-decoration: none; ">Log In</a>
         </nav>
@@ -36,7 +36,15 @@
                 the sales.</p>
         </div>
         <div id="Box2">
-            <h1>TEAM MEMBER</h1>
+            <h1 class="title-team">TEAM MEMBER</h1>
+            <div class="teamimage">
+                <img src="{% static 'Image/team/pritam.jpg'%}" alt="pritam photo" height="150px" width="150px">
+                <img src="{% static 'Image/team/sameer.jpeg'%}" alt="sameer photo" height="150px" width="150px">
+                <img src="{% static 'Image/team/prashanna.jpg'%}" alt="prashanna photo" height="150px" width="150px">
+                <img src="{% static 'Image/team/niraj.jpg'%}" alt="niraj photo" height="150px" width="150px">
+                <img src="{% static 'Image/team/saugat.jpg'%}" alt="saugat photo" height="150px" width="150px">
+            </div>
+
             <section id="Name">
                 <h3 id="Pritam">Project manager</h3>
                 <h3 id="Pritamname">Mr. Pritam Gurung</h3>
@@ -48,8 +56,20 @@
                 <h3 id="Dev2name">Mr. Niraj Gurung</h3>
                 <h3 id="Dev3">Developer</h3>
                 <h3 id="Dev3name">Mr. Saugat Chaulagain</h3>
-
             </section>
+            <style>
+                .title-team{
+                    margin-top: -3px;
+                }
+                .teamimage{
+                    margin-top: 30px;
+                    display: flex;
+                    justify-content: space-around;
+                }
+                .teamimage img{
+                    border-radius: 20px;
+                }
+            </style>
         </div>
     </section>
 
