@@ -124,24 +124,24 @@ def aboutaction(request):
 def contact(request):
     return render(request, 'contactus.html')
 
-
+@login_required
 def order(request):
     return render(request, 'orderprocessing.html')
-
+@login_required
 def cancelorder(request):
     return render(request, 'COP.html')
-
+@login_required
 def deliverorder(request):
     return render(request, 'DOP.html')
 
 def otp(request):
     return render(request, 'otp.html')
-
+@login_required
 def pending(request):
     return render(request, 'POP.html')
-
+@login_required
 def RA(request):
-    return render(request, 'R & A.html')
+    return render(request, 'reportandanalysis.html')
 
 def recoverpass(request):
     return render(request, 'Recoverpass.html')
@@ -151,10 +151,10 @@ def security(request):
 
 def top(request):
     return render(request, 'TOP.html')
-
+@login_required
 def UAC(request):
     return render(request, 'UAC.html')
-
+@login_required
 def userlist(request):
     return render(request, 'Userlist.html')
 
