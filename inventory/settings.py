@@ -71,9 +71,9 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
-        'NAME': 'ims2',
+        'NAME': 'ims3',
         'USER': 'root',
-        'PASSWORD': '5246709n',
+        'PASSWORD': '$$$lamjung$$$@@@',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -127,7 +127,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 
 
-EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'grgn1rax@gmail.com'

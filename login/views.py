@@ -1,3 +1,4 @@
+# import requests
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import check_password
@@ -5,7 +6,7 @@ from rest_framework import generics
 from inventory.models import Product
 from .serializers import ProductSerializer, UserSerializer
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required,user_passes_test
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.utils.decorators import method_decorator
 
 # Create your views here.
@@ -53,7 +54,8 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 # for invntory_tracking
-import requests
+
+
 def inventorytrackaction(request):
     api_url = 'http://localhost:8000/api/products/'
     response = requests.get(api_url)
@@ -79,9 +81,7 @@ def inventorytrackaction(request):
         # Handle error response
         data = []
 
-
-    return render(request, 'inventorytrack.html', {'data':data})
-
+    return render(request, 'inventorytrack.html', {'data': data})
 
 
 # for user API
@@ -103,9 +103,3 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(UserDetail, self).dispatch(*args, **kwargs)
-    
-
-
-
-
-
