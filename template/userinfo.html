@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,14 +10,15 @@
     <link rel="stylesheet" href="{% static 'css/userinfo.css' %}">
     <link rel="shortcut icon" href="{% static 'Image/sign_weblogo.png' %}" type="image/x-icon">
 </head>
+
 <body>
     <img id="Background" src="{% static 'Image/Loginbackground.png' %}" alt="Background">
     <div id="Container">
         <h2>User Information</h2>
-        <form action="{% url 'dashboard' %}" method="post">
+        <form method="post" action="{% url 'userinfo' %}">
             {% csrf_token %}
             {% if error_message %}
-                <p style="color:red">{{ error_message }}</p>
+            <p style="color:red">{{ error_message }}</p>
             {% endif %}
             <div class="Label">
                 <label>Full Name</label>
@@ -42,4 +44,5 @@
         </a>
     </div>
 </body>
+
 </html>

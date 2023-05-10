@@ -1,3 +1,9 @@
+import random
+from .forms import ProductForm
+from login.serializers import UserSerializer
+from django.conf import settings
+from django.core.mail import send_mail
+from django.shortcuts import render
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
@@ -47,9 +53,6 @@ from inventory.models import Admin
 #     else:
 #         context = {}
 #         return render(request, 'signup_page.html', context)
-    
-    
-
 
 
 def signaction(request):
@@ -78,6 +81,7 @@ def signaction(request):
         context = {}
         return render(request, 'signup_page.html', context)
 
+
 def useraction(request):
     print("one")
     if request.method == "POST":
@@ -89,13 +93,16 @@ def useraction(request):
         contact_number = request.POST['contact_number']
         address = request.POST['address']
         sex = request.POST['sex']
-        print(full_name,email,password,date_of_birth,contact_number,address,sex)
+        print(full_name, email, password, date_of_birth,
+              contact_number, address, sex)
         hashed_password = make_password(password)
-        admin = Admin(name=full_name, email=email, password=hashed_password, date_of_birth=date_of_birth, contact_number=contact_number, address=address, sex=sex)
+        admin = Admin(name=full_name, email=email, password=hashed_password,
+                      date_of_birth=date_of_birth, contact_number=contact_number, address=address, sex=sex)
         admin.save()
 
         return redirect('login')
     else:
+        print("three")
         context = {}
         return render(request, 'userinfo.html', context)
 
@@ -107,8 +114,10 @@ def homeaction(request):
 def aboutaction(request):
     return render(request, 'aboutus.html')
 
+
 def contact(request):
     return render(request, 'contactus.html')
+
 
 def order(request):
     return render(request, 'orderprocessing.html')
@@ -163,7 +172,8 @@ def changeaction(request):
             # Updating the session after a password change, logging out all other sessions
             # for security reasons, since the old password is no longer valid.
             update_session_auth_hash(request, user)
-            messages.success(request, 'Your password was successfully updated!')
+            messages.success(
+                request, 'Your password was successfully updated!')
             return redirect('home')
         else:
             messages.error(request, 'Please correct the errors below.')
@@ -171,12 +181,8 @@ def changeaction(request):
         form = PasswordChangeForm(request.user)
     return render(request, 'change_password.html', {'form': form})
 
-#for sending otp
+# for sending otp
 
-import random
-from django.shortcuts import render
-from django.core.mail import send_mail
-from django.conf import settings
 
 @login_required
 def forgetaction(request):
@@ -191,7 +197,8 @@ def forgetaction(request):
             from_email = settings.EMAIL_HOST_USER
             recipient_list = [email]
             # Send the email using Gmail
-            send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+            send_mail(subject, message, from_email,
+                      recipient_list, fail_silently=True)
             # Store the OTP in the session for later verification
             request.session['otp'] = otp
             # Render the verification page
@@ -203,23 +210,18 @@ def forgetaction(request):
         return render(request, 'forgotpass.html')
 
 
-from login.serializers import UserSerializer
-
 @login_required
 def UploadPictureAction(request):
     if request.method == 'POST':
         serializer = UserSerializer(data=request.POST, instance=request.user)
         if serializer.is_valid():
             serializer.save()
-            return redirect('profile.html')  # Replace 'profile' with the URL name of your profile page
+            # Replace 'profile' with the URL name of your profile page
+            return redirect('profile.html')
     else:
         serializer = UserSerializer(instance=request.user)
     return render(request, 'profile.html', {'serializer': serializer})
 
-
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from .forms import ProductForm
 
 def inventorytrackaction(request):
     if request.method == 'POST':
@@ -243,11 +245,10 @@ def inventorytrackaction(request):
             expirationdate=expdate
         )
         product.save()
-        return redirect('inventorytrack')  # Redirect to the inventory track page after saving the product
+        # Redirect to the inventory track page after saving the product
+        return redirect('inventorytrack')
 
     return render(request, 'inventory_track.html')
-
-
 
 
 def add_item(request):
@@ -260,4 +261,3 @@ def add_item(request):
     else:
         form = ProductForm()
     return render(request, 'inventory_track.html', {'form': form})
-
