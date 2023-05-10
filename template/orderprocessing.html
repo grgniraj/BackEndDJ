@@ -11,7 +11,7 @@
 </head>
 <body>
     <section id="Container">
-        <img src="/Image/imslogowhite.png" alt="Logo">
+        <img src="{% static 'Image/imslogowhite.png'%}" alt="Logo">
         <nav id="Menu">
             <a href="{% url 'dashboard'%}">
             <button><img id="img1" src="{% static 'Image/Vector.png'%}">Dashboard</button></a>
@@ -19,10 +19,10 @@
             <button><img id="img2" src="{% static 'Image/shieldsearch.png'%}">Inventory Tracking</button></a>
             <a href="{% url 'order'%}">
                 <button><img id="img3" src="{% static 'Image/emptywalletchange.png'%}">Order Processing</button></a>
-            <a href="">
+            <a href="{% url 'RA'%}">
                     <button><img id="img4" src="{% static 'Image/documenttext.png'%}">Report & Analysis</button>
             </a>            
-            <a href="">
+            <a href="{% url 'UAC'%}">
                 <button><img id="img5" src="{% static 'Image/UAC.png'%}">User Access Control</button>
             </a>
         </nav>
@@ -31,8 +31,8 @@
     <section id="Headline">
         <h2>Inventory Management System</h2>
         <input type="text" placeholder="Search">
-        <a href="profile.html"><img id="Profile" src="{% static 'Image/profile.png'%}"></a>
-        <a href="Home.html"><img id="Logout" src="{% static 'Image/Iconsax/Linear/Logout.png'%}" ></a>
+        <a href="{% url 'profile'%}"><img id="Profile" src="{% static 'Image/profile.png'%}"></a>
+        <a href="{% url 'home'%}"><img id="Logout" src="{% static 'Image/Iconsax/Linear/Logout.png'%}" ></a>
     </section>
     <section id="Main">
         <h1>Order Processing</h1>
@@ -59,22 +59,22 @@
             </div>
         </div>
         <div id="Forms">
-            <a href="TOP.html">
+            <a href="{% url 'TOP'%}">
                 <div class="top">
                     <h2>Today’s Ordered Products</h2> 
                 </div>
             </a> 
-            <a href="DOP.html">
+            <a href="{% url 'DOP'%}">
                 <div class="dop">
                     <h2>Delivered Ordered Products</h2>
                 </div>
             </a>  
-            <a href="POP.html">
+            <a href="{% url 'POP'%}">
                 <div class="pop">
                     <h2>Pending Ordered Products</h2>
                 </div>
             </a> 
-            <a href="COP.html">
+            <a href="{% url 'COP'%}">
             <div class="cop">
                 <h2>Cancelled Ordered Products</h2>
             </div>

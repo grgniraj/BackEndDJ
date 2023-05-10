@@ -1,4 +1,4 @@
-{% load static %}  <!-- Load static files -->
+{% load static %} 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cancelled Ordered Product List</title>
-    <link rel="stylesheet" href="{% static 'css/COP.css' %}">  <!-- Use static template tag for CSS file -->
-    <link rel="shortcut icon" href="{% static 'Image/Vector.png' %}" type="image/x-icon">  <!-- Use static template tag for image file -->
+    <link rel="stylesheet" href="{% static 'css/COP.css' %}">  
+    <link rel="shortcut icon" href="{% static 'Image/Vector.png' %}" type="image/x-icon"> 
 </head>
 <body>
     <section id="Container">
-        <img src="{% static 'Image/imslogowhite.png' %}" alt="Logo">  <!-- Use static template tag for image file -->
+        <img src="{% static 'Image/imslogowhite.png' %}" alt="Logo">  
         <nav id="Menu">
             <a href="{% url 'dashboard'%}">
                 <button><img id="img1" src="{% static 'Image/Vector.png' %}">Dashboard</button></a>
@@ -32,8 +32,8 @@
     <section id="Headline">
         <h2>Inventory Management System</h2>
         <input type="text" placeholder="Search">
-        <a href="{% url 'profile'%}"><img id="Profile" src="{% static 'Image/profile.png' %}"></a>  <!-- Use static template tag for image file -->
-        <a href="{% url 'home'%}"><img id="Logout" src="{% static 'Image/Iconsax/Linear/Logout.png' %}" ></a>  <!-- Use static template tag for image file -->
+        <a href="{% url 'profile'%}"><img id="Profile" src="{% static 'Image/profile.png' %}"></a>  
+        <a href="{% url 'home'%}"><img id="Logout" src="{% static 'Image/Iconsax/Linear/Logout.png' %}" ></a>  
     </section>
     <section id="Main">
         <h1>Cancelled Ordered Product List</h1>
