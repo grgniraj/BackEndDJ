@@ -104,6 +104,7 @@ class UserList(generics.ListCreateAPIView):
         return super(UserList, self).dispatch(*args, **kwargs)
 
 
+
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = User
