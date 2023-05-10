@@ -1,3 +1,4 @@
+from inventory.models import Order
 import random
 from .forms import ProductForm
 from login.serializers import UserSerializer
@@ -15,44 +16,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from inventory.models import Product
 from inventory.models import Admin
-
-# Create your views here.
-# def signaction(request):
-#     if request.method == "POST":
-#         password = request.POST['password']
-#         try:
-#             validate_password(password)
-#         except ValidationError as e:
-#             # The password entered by the user is invalid
-#             # Handle the error here
-#             error_message = "Invalid password. Your password must contain at least 8 characters and should contain at least one uppercase letter, one lowercase letter, one digit, and one special character."
-#             context = {'error_message': error_message}
-#             return render(request, 'signup_page.html', context)
-#         else:
-#             context = {}
-#             # The password entered by the user is valid
-#             # Process the data here
-#             # Get the form data from the request
-#             full_name = request.POST['fullname']
-#             email = request.POST['email']
-
-#             cpassword = request.POST['cpassword']
-#             if cpassword.__eq__(password):
-#                 # Create a new ImsAdmin instance with the form data
-#                 hashed_password = make_password(password)
-#                 admin = User(username=full_name, email=email,
-#                               password=hashed_password, is_staff=True)
-
-#             # Save the new instance to the database
-#                 status = admin.save()
-#                 return render(request, 'userinfo.html', context)
-#             else:
-#                 error_message = "Password Mismatch!!"
-#                 context = {'error_message': error_message}
-#                 return render(request, 'signup_page.html', context)
-#     else:
-#         context = {}
-#         return render(request, 'signup_page.html', context)
+from django.contrib.auth.decorators import permission_required
 
 
 def signaction(request):
@@ -74,7 +38,7 @@ def signaction(request):
                 request.session['password'] = password
                 hashed_password = make_password(password)
                 admin = User(username=full_name, email=email,
-                              password=hashed_password, is_staff=True)
+                             password=hashed_password, is_staff=True)
 
             # Save the new instance to the database
                 status = admin.save()
@@ -124,40 +88,65 @@ def aboutaction(request):
 def contact(request):
     return render(request, 'contactus.html')
 
-@login_required
+
 def order(request):
-    return render(request, 'orderprocessing.html')
+    if request.method == 'POST':
+        product_name = request.POST.get('productName')
+        quantity = request.POST.get('quantity')
+        delivery_location = request.POST.get('deliveryLocation')
+        order = Order(product_name=product_name, quantity=quantity,
+                      delivery_location=delivery_location)
+        order.save()
+        return redirect('order')
+    else:
+        return render(request, 'orderprocessing.html')
+
+
 @login_required
 def cancelorder(request):
     return render(request, 'COP.html')
+
+
 @login_required
 def deliverorder(request):
     return render(request, 'DOP.html')
 
+
 def otp(request):
     return render(request, 'otp.html')
+
+
 @login_required
 def pending(request):
     return render(request, 'POP.html')
+
+
 @login_required
 def RA(request):
     return render(request, 'reportandanalysis.html')
 
+
 def recoverpass(request):
     return render(request, 'Recoverpass.html')
 
+
+@permission_required('auth.is_superuser')
 def security(request):
     return render(request, 'Security.html')
 
+
 def top(request):
     return render(request, 'TOP.html')
+
+
 @login_required
 def UAC(request):
     return render(request, 'UAC.html')
+
+
 @login_required
 def userlist(request):
     return render(request, 'Userlist.html')
-
 
 
 @login_required
