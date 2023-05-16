@@ -70,17 +70,10 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
         'ENGINE': 'mysql.connector.django',
-        'NAME': 'ims3',
+        'NAME': 'ims4',
         'USER': 'root',
         'PASSWORD': '$$$lamjung$$$@@@',
-=======
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ims2',
-        'USER': 'root',
-        'PASSWORD': '',
->>>>>>> 824623313a65a54220b3a94b252b24e87c59ab0a
         'HOST': 'localhost',
         'PORT': '3306',
     }

@@ -54,12 +54,6 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 # for invntory_tracking
-<<<<<<< HEAD
-
-
-=======
-# import requests
->>>>>>> 824623313a65a54220b3a94b252b24e87c59ab0a
 def inventorytrackaction(request):
     api_url = 'http://localhost:8000/api/products/'
     response = requests.get(api_url)
