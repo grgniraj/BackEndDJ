@@ -1,0 +1,65 @@
+{% load static %}  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivered Ordered Product List</title>
+    <link rel="stylesheet" href="{% static 'css/DOP.css' %}">  
+    <link rel="shortcut icon" href="{% static 'Image/Vector.png' %}" type="image/x-icon">  
+</head>
+<body>
+    <section id="Container">
+        <img src="{% static 'Image/imslogowhite.png' %}" alt="Logo">  
+        <nav id="Menu">
+            <a href="{% url 'dashboard'%}">
+            <button><img id="img1" src="{% static 'Image/Vector.png' %}">Dashboard</button></a>
+            <a href="{% url 'inventorytrack'%}">
+            <button><img id="img2" src="{% static 'Image/shieldsearch.png' %}">Inventory Tracking</button></a>
+            <a href="{% url 'order'%}">
+                <button><img id="img3" src="{% static 'Image/emptywalletchange.png' %}">Order Processing</button></a>
+                <a href="{% url 'RA'%}">
+                    <button><img id="img4" src="{% static 'Image/documenttext.png' %}">Report & Analysis</button>
+                </a>
+                <a href="{% url 'UAC'%}">
+                    <button><img id="img5" src="{% static 'Image/UAC.png' %}">User Access Control</button>
+                </a>           
+        </nav>
+    </section>
+
+    <section id="Headline">
+        <h2>Inventory Management System</h2>
+        <input type="text" placeholder="Search">
+        <a href="{% url 'profile'%}"><img id="Profile" src="{% static 'Image/profile.png' %}"></a>
+        <a href="{% url 'home'%}"><img id="Logout" src="{% static 'Image/Iconsax/Linear/Logout.png' %}" ></a>
+    </section>
+    <section id="Main">
+        <h1>Delivered Ordered Product List</h1>
+        <a href="{% url 'order'%}">
+            <button>
+                Back
+            </button>
+        </a>
+        <div id="container">
+            <div class="product">
+                <div class="rec1">
+                    <h2>Product Name</h2>
+                    <p>Product Description</p>
+                </div>
+                <div class="rec2">
+                    <h2>Product Name</h2>
+                    <p>Product Description</p>
+                </div>
+                <div class="rec3">
+                    <h2>Product Name</h2>
+                    <p>Product Description</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>
+

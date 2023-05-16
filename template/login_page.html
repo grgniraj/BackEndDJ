@@ -28,9 +28,9 @@
                 <label>Email ID</label>
                 <label>Password</label>
             </div>
-            <input type="text" placeholder="" name="email">
+            <input type="text" placeholder="" name="username_or_email">
             <input type="password" placeholder="" name="password">
-            <a id="link" href="#">Forgot password?</a>
+            <a id="link" href="{% url 'forgotpassword'%}">Forgot password?</a>
             <button class="Login" type="submit">Log In</button>
         </form>
         <a href="{% url 'home'%}">

@@ -42,6 +42,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'signup.middleware.PermissionDeniedMiddleware',
 ]
 
 ROOT_URLCONF = 'inventory.urls'
@@ -71,9 +72,15 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
+<<<<<<< HEAD
         'NAME': 'ims4',
         'USER': 'root',
         'PASSWORD': '$$$lamjung$$$@@@',
+=======
+        'NAME': 'ims2',
+        'USER': 'root',
+        'PASSWORD': '5246709n',
+>>>>>>> 6327148d67349e791671d4b7d68f2984c8f7603c
         'HOST': 'localhost',
         'PORT': '3306',
     }
